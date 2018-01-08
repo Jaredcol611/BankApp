@@ -14,12 +14,11 @@ var SavingsAccount = /** @class */ (function () {
         this.dateOpened = new Date();
     }
     SavingsAccount.prototype.withdrawMoney = function (amount, description, transactionOrigin) {
-        this.TransactionOrigin = 3;
         var currentBalance = this.balance;
         this.accountType = 2;
-        if (this.TransactionOrigin === 1 || 2) {
+        this.amount = amount;
+        if (transactionOrigin == 1 || transactionOrigin == 2) {
             if (this.monthlyTransactions >= 1) {
-                this.amount = amount;
                 if (amount > currentBalance) {
                     this.success = false;
                     this.errorMessage = "Cannot withdrawal more than the available balance.";
@@ -38,7 +37,7 @@ var SavingsAccount = /** @class */ (function () {
                 }
             }
             else {
-                this.errorMessage = "Too many transactions this month";
+                this.errorMessage = "Number of transactions exceeded federal monthly limit";
             }
         }
         else {

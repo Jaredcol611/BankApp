@@ -23,16 +23,17 @@ export class RetirementAccount implements Account, Transaction {
     errorMessage: string;
     dateOpened: Date;
     monthlyTransactions: number = 6;
-    TransactionOrigin: TransactionOrigin;
+    userAge: number = 64;
+    earlyWithdrawal: number = (this.balance * .1);
 
     withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): Transaction {
 
-        this.TransactionOrigin = 3;
         let currentBalance = this.balance;
         this.accountType = 3;
-            if(this.TransactionOrigin == 1 || 2){
+        this.amount = amount;
+            if(transactionOrigin == 1 || transactionOrigin == 2){
                 if(this.monthlyTransactions >= 1){
-                        this.amount = amount;
+
                     if(amount > currentBalance){
                         this.success = false;
                         this.errorMessage = "Cannot withdrawal more than the available balance.";
@@ -41,17 +42,29 @@ export class RetirementAccount implements Account, Transaction {
                         this.description = description;
                     }
                     else {
-                        this.success = true;
-                        this.errorMessage = "";
-                        this.resultBalance = this.balance -= amount;
-                        this.transactionDate = new Date();
-                        this.description = description;
-                        this.monthlyTransactions--;
-                        //  this.accountHistory
+                        if(this.userAge <= 65) {
+                            this.balance -= this.earlyWithdrawal;
+                            this.success = true;
+                            this.errorMessage = "";
+                            this.resultBalance = this.balance -= amount;
+                            this.transactionDate = new Date();
+                            this.description = description;
+                            this.monthlyTransactions--;
+                            //  this.accountHistory
+                        }
+                        else {
+                            this.success = true;
+                            this.errorMessage = "";
+                            this.resultBalance = this.balance -= amount;
+                            this.transactionDate = new Date();
+                            this.description = description;
+                            this.monthlyTransactions--;
+                            //  this.accountHistory
+                        }
                     }
                 }
                 else{
-                    this.errorMessage = "Too many transactions this month";
+                    this.errorMessage = "Number of transactions exceeded federal monthly limit";
                 }
             }
             else{

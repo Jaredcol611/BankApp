@@ -55,15 +55,35 @@ let retirement = new RetirementAccount();
     // console.log(savings.description);
     // console.log(savings.monthlyTransactions);
 
-    console.log(savings.monthlyTransactions);
-    console.log(savings.withdrawMoney(500, "Car crash", 3));
-    console.log(savings.success);
-    console.log(savings.errorMessage);
-    console.log(savings.transactionDate);
-    console.log(savings.balance);
-    console.log(savings.description);
-    console.log(savings.monthlyTransactions);
+    // console.log(savings.monthlyTransactions);
+    // console.log(savings.withdrawMoney(500, "Broken bone", 2));
+    // console.log(savings.success);
+    // console.log(savings.errorMessage);
+    // console.log(savings.transactionDate);
+    // console.log(savings.balance);
+    // console.log(savings.description);
+    // console.log(savings.monthlyTransactions);
 
+
+//retirement account tests
+
+    // console.log(retirement.monthlyTransactions);
+    // console.log(retirement.withdrawMoney(10000, "kicks", 3));
+    // console.log(retirement.earlyWithdrawal);
+    // console.log(retirement.success);
+    // console.log(retirement.errorMessage);
+    // console.log(retirement.transactionDate);
+    // console.log(retirement.balance);
+    // console.log(retirement.description);
+    // console.log(retirement.monthlyTransactions);
+    //
+    // console.log(retirement.withdrawMoney(500, 'testing', 3));
+    // console.log(retirement.balance);
+    //
+    // console.log(retirement.depositMoney(10000, "mulah"));
+    // console.log(retirement.balance);
+
+console.log(retirement.balance - retirement.earlyWithdrawal);
 
 
 

@@ -23,16 +23,15 @@ export class SavingsAccount implements Account, Transaction {
     errorMessage: string;
     dateOpened: Date;
     monthlyTransactions: number = 6;
-    TransactionOrigin: TransactionOrigin;
 
     withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): Transaction {
 
-        this.TransactionOrigin = 3;
         let currentBalance = this.balance;
         this.accountType = 2;
-            if(this.TransactionOrigin === 1 || 2){
+        this.amount = amount;
+            if(transactionOrigin == 1 || transactionOrigin == 2){
                 if(this.monthlyTransactions >= 1){
-                        this.amount = amount;
+
                     if(amount > currentBalance){
                         this.success = false;
                         this.errorMessage = "Cannot withdrawal more than the available balance.";
@@ -51,7 +50,7 @@ export class SavingsAccount implements Account, Transaction {
                     }
                 }
                 else{
-                    this.errorMessage = "Too many transactions this month";
+                    this.errorMessage = "Number of transactions exceeded federal monthly limit";
                 }
             }
             else{

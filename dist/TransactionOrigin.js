@@ -6,4 +6,7 @@ var TransactionOrigin;
     TransactionOrigin[TransactionOrigin["phone"] = 2] = "phone";
     TransactionOrigin[TransactionOrigin["branch"] = 3] = "branch";
 })(TransactionOrigin = exports.TransactionOrigin || (exports.TransactionOrigin = {}));
+// console.log(TransactionOrigin.phone);
+// console.log(TransactionOrigin.branch);
+// console.log(TransactionOrigin.web); 
 //# sourceMappingURL=TransactionOrigin.js.map
