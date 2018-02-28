@@ -26,6 +26,8 @@ export class RetirementAccount implements Account, Transaction {
     userAge: number = 64;
     earlyWithdrawal: number = (this.balance * .1);
 
+   // move this.balance to an if statement. use moment JS. create this.currentdate.add (days) then get 1st day of month, not first day of week.
+
     withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): Transaction {
 
         let currentBalance = this.balance;
@@ -42,7 +44,7 @@ export class RetirementAccount implements Account, Transaction {
                         this.description = description;
                     }
                     else {
-                        if(this.userAge <= 65) {
+                        if(this.userAge < 65) {
                             this.balance -= this.earlyWithdrawal;
                             this.success = true;
                             this.errorMessage = "";

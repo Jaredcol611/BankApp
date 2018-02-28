@@ -1,0 +1,7 @@
+{
+  "name": "BankApp",
+  "version": "0.0.1",
+  "dependencies": {
+    "moment": "^2.20.1"
+  }
+}

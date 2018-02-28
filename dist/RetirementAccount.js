@@ -15,6 +15,7 @@ var RetirementAccount = /** @class */ (function () {
         this.earlyWithdrawal = (this.balance * .1);
         this.dateOpened = new Date();
     }
+    // move this.balance to an if statement. use moment JS. create this.currentdate.add (days) then get 1st day of month, not first day of week.
     RetirementAccount.prototype.withdrawMoney = function (amount, description, transactionOrigin) {
         var currentBalance = this.balance;
         this.accountType = 3;
@@ -29,7 +30,7 @@ var RetirementAccount = /** @class */ (function () {
                     this.description = description;
                 }
                 else {
-                    if (this.userAge <= 65) {
+                    if (this.userAge < 65) {
                         this.balance -= this.earlyWithdrawal;
                         this.success = true;
                         this.errorMessage = "";
