@@ -3,8 +3,8 @@ import { TransactionOrigin} from "./TransactionOrigin";
 import { AccountType } from "./AccountType";
 
 export interface Account {
-    accountHolderName: string;
-    accountHolderBirthDate: Date;
+
+
     balance: number;
     accountHistory : Transaction[];
     accountType: AccountType;

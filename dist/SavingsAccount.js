@@ -7,11 +7,13 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var Decorators_1 = require("./Decorators");
+var moment = require("moment");
 var SavingsAccount = /** @class */ (function () {
     function SavingsAccount() {
         this.balance = 10000;
+        // dateOpened: Date;
         this.monthlyTransactions = 6;
-        this.dateOpened = new Date();
+        // this.dateOpened = new Date();
     }
     SavingsAccount.prototype.withdrawMoney = function (amount, description, transactionOrigin) {
         var currentBalance = this.balance;
@@ -22,15 +24,14 @@ var SavingsAccount = /** @class */ (function () {
                 if (amount > currentBalance) {
                     this.success = false;
                     this.errorMessage = "Cannot withdrawal more than the available balance.";
-                    this.resultBalance = this.balance;
-                    this.transactionDate = new Date();
+                    this.transactionDate = moment().format("MMM Do YYYY");
                     this.description = description;
                 }
                 else {
                     this.success = true;
                     this.errorMessage = "";
-                    this.resultBalance = this.balance -= amount;
-                    this.transactionDate = new Date();
+                    this.balance -= amount;
+                    this.transactionDate = moment().format("MMM Do YYYY");
                     this.description = description;
                     this.monthlyTransactions--;
                     //  this.accountHistory
@@ -41,33 +42,30 @@ var SavingsAccount = /** @class */ (function () {
             }
         }
         else {
-            this.amount = amount;
             if (amount > currentBalance) {
                 this.success = false;
                 this.errorMessage = "Cannot withdrawal more than the available balance.";
-                this.resultBalance = this.balance;
-                this.transactionDate = new Date();
+                this.transactionDate = moment().format("MMM Do YYYY");
                 this.description = description;
             }
             else {
                 this.success = true;
                 this.errorMessage = "";
-                this.resultBalance = this.balance -= amount;
-                this.transactionDate = new Date();
+                this.balance -= amount;
+                this.transactionDate = moment().format("MMM Do YYYY");
                 this.description = description;
                 //  this.accountHistory
             }
         }
-        return;
+        return this.description;
     };
     SavingsAccount.prototype.depositMoney = function (amount, description) {
         this.balance += amount;
-        this.resultBalance = this.balance;
         this.success = true;
         this.description = description;
         this.errorMessage = "";
-        this.transactionDate = new Date();
-        return;
+        this.transactionDate = moment().format("MMM Do YYYY");
+        return this.description;
     };
     SavingsAccount.prototype.advanceDate = function (numberOfDays) {
         // balance * .02 / 12

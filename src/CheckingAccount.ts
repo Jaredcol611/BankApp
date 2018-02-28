@@ -3,59 +3,56 @@ import { Transaction } from "./Transaction";
 import { AccountType } from "./AccountType";
 import { TransactionOrigin} from "./TransactionOrigin";
 import { displayClassName, displayClassNameWithPurpose } from "./Decorators";
+import * as moment from 'moment';
 
 @displayClassName
-export class CheckingAccount implements Account, Transaction {
+export class CheckingAccount implements Account {
 
     constructor() {
-        this.dateOpened = new Date();
+       // this.dateOpened = new Date();
     }
-    accountHolderName: string;
-    accountHolderBirthDate: Date;
+
     balance: number = 1000;
     accountType: AccountType;
     accountHistory: Transaction[];
     success: boolean;
-    resultBalance: number;
     amount: number;
     description: string;
-    transactionDate: Date;
+    transactionDate: any;
     errorMessage: string;
-    dateOpened: Date;
+   // dateOpened: Date;
 
-    withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): Transaction {
+    withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): any {
         let currentBalance = this.balance;
         this.accountType = 1;
-            if(transactionOrigin == TransactionOrigin.branch || TransactionOrigin.phone || TransactionOrigin.web) {
-                    this.amount = amount;
+        this.amount = amount;
+            if(transactionOrigin) {
                 if (amount > currentBalance) {
                     this.success = false;
                     this.errorMessage = "Cannot withdrawal more than the available balance.";
-                    this.resultBalance = this.balance;
-                    this.transactionDate = new Date();
+                    this.transactionDate = moment().format("MMM Do YYYY");
                     this.description = description;
                 }
                 else {
                     this.success = true;
                     this.errorMessage = "";
-                    this.resultBalance = this.balance -= amount;
-                    this.transactionDate = new Date();
+                    this.balance -= amount;
+                    this.transactionDate = moment().format("MMM Do YYYY");
                     this.description = description;
                   //  this.accountHistory
                 }
-                return;
+                return this.description;
             }
     }
 
-    depositMoney(amount: number, description: string): Transaction {
+    depositMoney(amount: number, description: string): any {
         this.balance += amount;
-        this.resultBalance = this.balance;
         this.success = true;
         this.description = description;
         this.errorMessage = "";
-        this.transactionDate = new Date();
+        this.transactionDate = moment().format("MMM Do YYYY");
 
-        return;
+        return this.description;
     }
 
     advanceDate(numberOfDays: number) {

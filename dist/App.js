@@ -59,10 +59,16 @@ var retirement = new RetirementAccount_1.RetirementAccount();
 // console.log(retirement.balance);
 // console.log(retirement.description);
 // console.log(retirement.monthlyTransactions);
-//
-console.log(retirement.withdrawMoney(500, 'testing', 3));
 console.log(retirement.balance);
-console.log(retirement.depositMoney(10000, "mulah"));
+console.log(retirement.withdrawMoney(500, 'Withdraw from retirement before the age of 65', 2));
+console.log(retirement.success);
+console.log(retirement.earlyWithdrawal);
 console.log(retirement.balance);
-console.log(retirement.balance - retirement.earlyWithdrawal);
+console.log(retirement.monthlyTransactions);
+console.log(retirement.transactionDate);
+// console.log(retirement.balance);
+// console.log(retirement.depositMoney(10000, "mulah"));
+// console.log(retirement.balance);
+// console.log(retirement.transactionDate);
+// console.log(retirement.balance);
 //# sourceMappingURL=App.js.map

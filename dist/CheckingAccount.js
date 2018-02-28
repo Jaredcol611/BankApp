@@ -6,44 +6,43 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var TransactionOrigin_1 = require("./TransactionOrigin");
 var Decorators_1 = require("./Decorators");
+var moment = require("moment");
 var CheckingAccount = /** @class */ (function () {
     function CheckingAccount() {
         this.balance = 1000;
-        this.dateOpened = new Date();
+        // this.dateOpened = new Date();
     }
+    // dateOpened: Date;
     CheckingAccount.prototype.withdrawMoney = function (amount, description, transactionOrigin) {
         var currentBalance = this.balance;
         this.accountType = 1;
-        if (transactionOrigin == TransactionOrigin_1.TransactionOrigin.branch || TransactionOrigin_1.TransactionOrigin.phone || TransactionOrigin_1.TransactionOrigin.web) {
-            this.amount = amount;
+        this.amount = amount;
+        if (transactionOrigin) {
             if (amount > currentBalance) {
                 this.success = false;
                 this.errorMessage = "Cannot withdrawal more than the available balance.";
-                this.resultBalance = this.balance;
-                this.transactionDate = new Date();
+                this.transactionDate = moment().format("MMM Do YYYY");
                 this.description = description;
             }
             else {
                 this.success = true;
                 this.errorMessage = "";
-                this.resultBalance = this.balance -= amount;
-                this.transactionDate = new Date();
+                this.balance -= amount;
+                this.transactionDate = moment().format("MMM Do YYYY");
                 this.description = description;
                 //  this.accountHistory
             }
-            return;
+            return this.description;
         }
     };
     CheckingAccount.prototype.depositMoney = function (amount, description) {
         this.balance += amount;
-        this.resultBalance = this.balance;
         this.success = true;
         this.description = description;
         this.errorMessage = "";
-        this.transactionDate = new Date();
-        return;
+        this.transactionDate = moment().format("MMM Do YYYY");
+        return this.description;
     };
     CheckingAccount.prototype.advanceDate = function (numberOfDays) {
         // this.dateOpened +=

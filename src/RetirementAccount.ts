@@ -3,32 +3,30 @@ import { Transaction } from "./Transaction";
 import { AccountType } from "./AccountType";
 import { TransactionOrigin} from "./TransactionOrigin";
 import { displayClassName, displayClassNameWithPurpose } from "./Decorators";
+import * as moment from 'moment';
 
 @displayClassName
-export class RetirementAccount implements Account, Transaction {
+export class RetirementAccount implements Account {
 
     constructor() {
-        this.dateOpened = new Date();
+      //  this.dateOpened = new Date();
     }
-    accountHolderName: string;
-    accountHolderBirthDate: Date;
     balance: number = 100000;
     accountType: AccountType;
     accountHistory: Transaction[];
     success: boolean;
-    resultBalance: number;
     amount: number;
     description: string;
-    transactionDate: Date;
+    transactionDate: any;
     errorMessage: string;
-    dateOpened: Date;
+    // dateOpened: Date;
     monthlyTransactions: number = 6;
-    userAge: number = 64;
-    earlyWithdrawal: number = (this.balance * .1);
+    userAge: number = 66;
+    earlyWithdrawal: number;
 
    // move this.balance to an if statement. use moment JS. create this.currentdate.add (days) then get 1st day of month, not first day of week.
 
-    withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): Transaction {
+    withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): any {
 
         let currentBalance = this.balance;
         this.accountType = 3;
@@ -39,17 +37,17 @@ export class RetirementAccount implements Account, Transaction {
                     if(amount > currentBalance){
                         this.success = false;
                         this.errorMessage = "Cannot withdrawal more than the available balance.";
-                        this.resultBalance = this.balance;
-                        this.transactionDate = new Date();
+                        this.transactionDate = moment().format("MMM Do YYYY");
                         this.description = description;
                     }
                     else {
-                        if(this.userAge < 65) {
+                        if(this.userAge <= 65) {
+                            this.earlyWithdrawal = (this.balance * .1);
                             this.balance -= this.earlyWithdrawal;
                             this.success = true;
                             this.errorMessage = "";
-                            this.resultBalance = this.balance -= amount;
-                            this.transactionDate = new Date();
+                            this.balance -= amount;
+                            this.transactionDate = moment().format("MMM Do YYYY");
                             this.description = description;
                             this.monthlyTransactions--;
                             //  this.accountHistory
@@ -57,8 +55,8 @@ export class RetirementAccount implements Account, Transaction {
                         else {
                             this.success = true;
                             this.errorMessage = "";
-                            this.resultBalance = this.balance -= amount;
-                            this.transactionDate = new Date();
+                            this.balance -= amount;
+                            this.transactionDate = moment().format("MMM Do YYYY");
                             this.description = description;
                             this.monthlyTransactions--;
                             //  this.accountHistory
@@ -70,35 +68,41 @@ export class RetirementAccount implements Account, Transaction {
                 }
             }
             else{
-                this.amount = amount;
-                if(amount > currentBalance){
+                if (amount > currentBalance) {
                     this.success = false;
                     this.errorMessage = "Cannot withdrawal more than the available balance.";
-                    this.resultBalance = this.balance;
-                    this.transactionDate = new Date();
                     this.description = description;
                 }
-                else {
-                    this.success = true;
-                    this.errorMessage = "";
-                    this.resultBalance = this.balance -= amount;
-                    this.transactionDate = new Date();
-                    this.description = description;
-                    //  this.accountHistory
+                else{
+                    if(this.userAge <= 65){
+                        this.earlyWithdrawal = (this.balance * .1);
+                        this.balance -= this.earlyWithdrawal;
+                        this.success = true;
+                        this.errorMessage = "";
+                        this.balance -= amount;
+                        this.transactionDate = moment().format("MMM Do YYYY");
+                        this.description = description;
+                    }
+                    else {
+                        this.success = true;
+                        this.errorMessage = "";
+                        this.balance -= amount;
+                        this.transactionDate = moment().format("MMM Do YYYY");
+                        this.description = description;
+                    }
                 }
             }
-        return;
+        return this.description;
     }
 
-    depositMoney(amount: number, description: string): Transaction {
+    depositMoney(amount: number, description: string): any {
         this.balance += amount;
-        this.resultBalance = this.balance;
         this.success = true;
         this.description = description;
         this.errorMessage = "";
-        this.transactionDate = new Date();
+        this.transactionDate = moment().format("MMM Do YYYY");
 
-        return;
+        return this.description;
     }
 
     advanceDate(numberOfDays: number) {

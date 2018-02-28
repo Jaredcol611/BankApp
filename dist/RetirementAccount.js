@@ -7,13 +7,14 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 var Decorators_1 = require("./Decorators");
+var moment = require("moment");
 var RetirementAccount = /** @class */ (function () {
     function RetirementAccount() {
         this.balance = 100000;
+        // dateOpened: Date;
         this.monthlyTransactions = 6;
-        this.userAge = 64;
-        this.earlyWithdrawal = (this.balance * .1);
-        this.dateOpened = new Date();
+        this.userAge = 66;
+        //  this.dateOpened = new Date();
     }
     // move this.balance to an if statement. use moment JS. create this.currentdate.add (days) then get 1st day of month, not first day of week.
     RetirementAccount.prototype.withdrawMoney = function (amount, description, transactionOrigin) {
@@ -25,17 +26,17 @@ var RetirementAccount = /** @class */ (function () {
                 if (amount > currentBalance) {
                     this.success = false;
                     this.errorMessage = "Cannot withdrawal more than the available balance.";
-                    this.resultBalance = this.balance;
-                    this.transactionDate = new Date();
+                    this.transactionDate = moment().format("MMM Do YYYY");
                     this.description = description;
                 }
                 else {
-                    if (this.userAge < 65) {
+                    if (this.userAge <= 65) {
+                        this.earlyWithdrawal = (this.balance * .1);
                         this.balance -= this.earlyWithdrawal;
                         this.success = true;
                         this.errorMessage = "";
-                        this.resultBalance = this.balance -= amount;
-                        this.transactionDate = new Date();
+                        this.balance -= amount;
+                        this.transactionDate = moment().format("MMM Do YYYY");
                         this.description = description;
                         this.monthlyTransactions--;
                         //  this.accountHistory
@@ -43,8 +44,8 @@ var RetirementAccount = /** @class */ (function () {
                     else {
                         this.success = true;
                         this.errorMessage = "";
-                        this.resultBalance = this.balance -= amount;
-                        this.transactionDate = new Date();
+                        this.balance -= amount;
+                        this.transactionDate = moment().format("MMM Do YYYY");
                         this.description = description;
                         this.monthlyTransactions--;
                         //  this.accountHistory
@@ -56,33 +57,39 @@ var RetirementAccount = /** @class */ (function () {
             }
         }
         else {
-            this.amount = amount;
             if (amount > currentBalance) {
                 this.success = false;
                 this.errorMessage = "Cannot withdrawal more than the available balance.";
-                this.resultBalance = this.balance;
-                this.transactionDate = new Date();
                 this.description = description;
             }
             else {
-                this.success = true;
-                this.errorMessage = "";
-                this.resultBalance = this.balance -= amount;
-                this.transactionDate = new Date();
-                this.description = description;
-                //  this.accountHistory
+                if (this.userAge <= 65) {
+                    this.earlyWithdrawal = (this.balance * .1);
+                    this.balance -= this.earlyWithdrawal;
+                    this.success = true;
+                    this.errorMessage = "";
+                    this.balance -= amount;
+                    this.transactionDate = moment().format("MMM Do YYYY");
+                    this.description = description;
+                }
+                else {
+                    this.success = true;
+                    this.errorMessage = "";
+                    this.balance -= amount;
+                    this.transactionDate = moment().format("MMM Do YYYY");
+                    this.description = description;
+                }
             }
         }
-        return;
+        return this.description;
     };
     RetirementAccount.prototype.depositMoney = function (amount, description) {
         this.balance += amount;
-        this.resultBalance = this.balance;
         this.success = true;
         this.description = description;
         this.errorMessage = "";
-        this.transactionDate = new Date();
-        return;
+        this.transactionDate = moment().format("MMM Do YYYY");
+        return this.description;
     };
     RetirementAccount.prototype.advanceDate = function (numberOfDays) {
         // balance * .03 / 12
