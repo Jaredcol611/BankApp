@@ -11,9 +11,8 @@ var moment = require("moment");
 var CheckingAccount = /** @class */ (function () {
     function CheckingAccount() {
         this.balance = 1000;
-        // this.dateOpened = new Date();
+        this.dateOpened = moment('2015-06-19');
     }
-    // dateOpened: Date;
     CheckingAccount.prototype.withdrawMoney = function (amount, description, transactionOrigin) {
         var currentBalance = this.balance;
         this.accountType = 1;
@@ -31,7 +30,6 @@ var CheckingAccount = /** @class */ (function () {
                 this.balance -= amount;
                 this.transactionDate = moment().format("MMM Do YYYY");
                 this.description = description;
-                //  this.accountHistory
             }
             return this.description;
         }
@@ -45,8 +43,23 @@ var CheckingAccount = /** @class */ (function () {
         return this.description;
     };
     CheckingAccount.prototype.advanceDate = function (numberOfDays) {
-        // this.dateOpened +=
-        // balance * .01 / 12
+        var countingDate = this.dateOpened;
+        console.log(countingDate);
+        var i = 0;
+        while (i < numberOfDays) {
+            countingDate.add(1, 'days');
+            console.log(countingDate);
+            i++;
+            // console.log(countingDate.date());
+            if (countingDate.date() === 1) {
+                console.log('New monthly interest added');
+                var interest = (this.balance * 0.01) / 12;
+                console.log(interest);
+                this.balance += interest;
+                console.log(this.balance);
+            }
+        }
+        return this.balance;
     };
     CheckingAccount = __decorate([
         Decorators_1.displayClassName

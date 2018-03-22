@@ -9,7 +9,7 @@ import * as moment from 'moment';
 export class CheckingAccount implements Account {
 
     constructor() {
-       // this.dateOpened = new Date();
+        this.dateOpened = moment('2015-06-19');
     }
 
     balance: number = 1000;
@@ -20,7 +20,7 @@ export class CheckingAccount implements Account {
     description: string;
     transactionDate: any;
     errorMessage: string;
-   // dateOpened: Date;
+    dateOpened: any;
 
     withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): any {
         let currentBalance = this.balance;
@@ -39,7 +39,6 @@ export class CheckingAccount implements Account {
                     this.balance -= amount;
                     this.transactionDate = moment().format("MMM Do YYYY");
                     this.description = description;
-                  //  this.accountHistory
                 }
                 return this.description;
             }
@@ -56,8 +55,25 @@ export class CheckingAccount implements Account {
     }
 
     advanceDate(numberOfDays: number) {
-       // this.dateOpened +=
-        // balance * .01 / 12
+        let countingDate = this.dateOpened;
+        console.log(countingDate);
+        let i = 0;
+        while (i < numberOfDays) {
+            countingDate.add(1, 'days');
+            console.log(countingDate);
+            i++;
+            // console.log(countingDate.date());
+            if (countingDate.date() === 1) {
+                console.log('New monthly interest added');
+                let interest = (this.balance * 0.01) / 12;
+                console.log(interest);
+                this.balance += interest;
+                console.log(this.balance);
+            }
+        }
+        return this.balance;
     }
+// create start date and then for loop over number of days and calc interest whenever number of days is first of the month
+
 
 }

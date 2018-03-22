@@ -9,7 +9,7 @@ import * as moment from 'moment';
 export class SavingsAccount implements Account {
 
     constructor(){
-      // this.dateOpened = new Date();
+        this.dateOpened = moment('2015-06-19');
     }
     balance: number = 10000;
     accountType: AccountType;
@@ -19,8 +19,8 @@ export class SavingsAccount implements Account {
     description: string;
     transactionDate: any;
     errorMessage: string;
-   // dateOpened: Date;
     monthlyTransactions: number = 6;
+    dateOpened: any;
 
     withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): any {
 
@@ -43,7 +43,6 @@ export class SavingsAccount implements Account {
                         this.transactionDate = moment().format("MMM Do YYYY");
                         this.description = description;
                         this.monthlyTransactions--;
-                        //  this.accountHistory
                     }
                 }
                 else{
@@ -80,8 +79,22 @@ export class SavingsAccount implements Account {
     }
 
     advanceDate(numberOfDays: number) {
-        // balance * .02 / 12
-        //monthlyTransaction reset to 6
+        let countingDate = this.dateOpened;
+        console.log(countingDate);
+        let i = 0;
+        while (i < numberOfDays) {
+            countingDate.add(1, 'days');
+            console.log(countingDate);
+            i++;
+            // console.log(countingDate.date());
+            if (countingDate.date() === 1) {
+                console.log('New monthly interest added');
+                let interest = (this.balance * 0.02) / 12;
+                console.log(interest);
+                this.balance += interest;
+                console.log(this.balance);
+            }
+        }
+        return this.balance;
     }
-
 }

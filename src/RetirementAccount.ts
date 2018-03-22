@@ -9,7 +9,7 @@ import * as moment from 'moment';
 export class RetirementAccount implements Account {
 
     constructor() {
-      //  this.dateOpened = new Date();
+        this.dateOpened = moment('2015-06-19');
     }
     balance: number = 100000;
     accountType: AccountType;
@@ -19,10 +19,10 @@ export class RetirementAccount implements Account {
     description: string;
     transactionDate: any;
     errorMessage: string;
-    // dateOpened: Date;
     monthlyTransactions: number = 6;
     userAge: number = 66;
     earlyWithdrawal: number;
+    dateOpened: any;
 
    // move this.balance to an if statement. use moment JS. create this.currentdate.add (days) then get 1st day of month, not first day of week.
 
@@ -50,7 +50,6 @@ export class RetirementAccount implements Account {
                             this.transactionDate = moment().format("MMM Do YYYY");
                             this.description = description;
                             this.monthlyTransactions--;
-                            //  this.accountHistory
                         }
                         else {
                             this.success = true;
@@ -59,7 +58,6 @@ export class RetirementAccount implements Account {
                             this.transactionDate = moment().format("MMM Do YYYY");
                             this.description = description;
                             this.monthlyTransactions--;
-                            //  this.accountHistory
                         }
                     }
                 }
@@ -106,8 +104,22 @@ export class RetirementAccount implements Account {
     }
 
     advanceDate(numberOfDays: number) {
-        // balance * .03 / 12
-        //monthlyTransactions reset to 6
+        let countingDate = this.dateOpened;
+        console.log(countingDate);
+        let i = 0;
+        while (i < numberOfDays) {
+            countingDate.add(1, 'days');
+            console.log(countingDate);
+            i++;
+            // console.log(countingDate.date());
+            if (countingDate.date() === 1) {
+                console.log('New monthly interest added');
+                let interest = (this.balance * 0.03) / 12;
+                console.log(interest);
+                this.balance += interest;
+                console.log(this.balance);
+            }
+        }
+        return this.balance;
     }
-
 }

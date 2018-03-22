@@ -11,10 +11,9 @@ var moment = require("moment");
 var RetirementAccount = /** @class */ (function () {
     function RetirementAccount() {
         this.balance = 100000;
-        // dateOpened: Date;
         this.monthlyTransactions = 6;
         this.userAge = 66;
-        //  this.dateOpened = new Date();
+        this.dateOpened = moment('2015-06-19');
     }
     // move this.balance to an if statement. use moment JS. create this.currentdate.add (days) then get 1st day of month, not first day of week.
     RetirementAccount.prototype.withdrawMoney = function (amount, description, transactionOrigin) {
@@ -39,7 +38,6 @@ var RetirementAccount = /** @class */ (function () {
                         this.transactionDate = moment().format("MMM Do YYYY");
                         this.description = description;
                         this.monthlyTransactions--;
-                        //  this.accountHistory
                     }
                     else {
                         this.success = true;
@@ -48,7 +46,6 @@ var RetirementAccount = /** @class */ (function () {
                         this.transactionDate = moment().format("MMM Do YYYY");
                         this.description = description;
                         this.monthlyTransactions--;
-                        //  this.accountHistory
                     }
                 }
             }
@@ -92,8 +89,23 @@ var RetirementAccount = /** @class */ (function () {
         return this.description;
     };
     RetirementAccount.prototype.advanceDate = function (numberOfDays) {
-        // balance * .03 / 12
-        //monthlyTransactions reset to 6
+        var countingDate = this.dateOpened;
+        console.log(countingDate);
+        var i = 0;
+        while (i < numberOfDays) {
+            countingDate.add(1, 'days');
+            console.log(countingDate);
+            i++;
+            // console.log(countingDate.date());
+            if (countingDate.date() === 1) {
+                console.log('New monthly interest added');
+                var interest = (this.balance * 0.03) / 12;
+                console.log(interest);
+                this.balance += interest;
+                console.log(this.balance);
+            }
+        }
+        return this.balance;
     };
     RetirementAccount = __decorate([
         Decorators_1.displayClassName

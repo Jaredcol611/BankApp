@@ -11,9 +11,8 @@ var moment = require("moment");
 var SavingsAccount = /** @class */ (function () {
     function SavingsAccount() {
         this.balance = 10000;
-        // dateOpened: Date;
         this.monthlyTransactions = 6;
-        // this.dateOpened = new Date();
+        this.dateOpened = moment('2015-06-19');
     }
     SavingsAccount.prototype.withdrawMoney = function (amount, description, transactionOrigin) {
         var currentBalance = this.balance;
@@ -34,7 +33,6 @@ var SavingsAccount = /** @class */ (function () {
                     this.transactionDate = moment().format("MMM Do YYYY");
                     this.description = description;
                     this.monthlyTransactions--;
-                    //  this.accountHistory
                 }
             }
             else {
@@ -68,8 +66,23 @@ var SavingsAccount = /** @class */ (function () {
         return this.description;
     };
     SavingsAccount.prototype.advanceDate = function (numberOfDays) {
-        // balance * .02 / 12
-        //monthlyTransaction reset to 6
+        var countingDate = this.dateOpened;
+        console.log(countingDate);
+        var i = 0;
+        while (i < numberOfDays) {
+            countingDate.add(1, 'days');
+            console.log(countingDate);
+            i++;
+            // console.log(countingDate.date());
+            if (countingDate.date() === 1) {
+                console.log('New monthly interest added');
+                var interest = (this.balance * 0.02) / 12;
+                console.log(interest);
+                this.balance += interest;
+                console.log(this.balance);
+            }
+        }
+        return this.balance;
     };
     SavingsAccount = __decorate([
         Decorators_1.displayClassName
