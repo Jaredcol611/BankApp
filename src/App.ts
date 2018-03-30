@@ -91,8 +91,9 @@ let retirement = new RetirementAccount();
 
     // console.log(savings.advanceDate(234));
 
-    console.log(retirement.advanceDate(234));
-
+    console.log(retirement.advanceDate(37));
+    console.log(checking.advanceDate(38));
+    console.log(savings.advanceDate(38));
 
     // console.log(retirement.balance);
     // console.log(retirement.depositMoney(10000, "mulah"));

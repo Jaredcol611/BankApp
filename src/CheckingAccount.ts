@@ -59,11 +59,14 @@ export class CheckingAccount implements Account {
         let countingDate = this.dateOpened;
         console.log(countingDate);
         let i = 0;
+      //   for(let i = 0; i <= countingDate; i++) {
+      //   countingDate.add(1, 'days');
+      //   console.log(countingDate);
         while (i < numberOfDays) {
             countingDate.add(1, 'days');
             console.log(countingDate);
             i++;
-            // console.log(countingDate.date());
+            //console.log(countingDate.date());
             if (countingDate.date() === 1) {
                 console.log('New monthly interest added');
                 let interest = (this.balance * 0.01) / 12;
