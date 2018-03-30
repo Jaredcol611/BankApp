@@ -3,18 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="82f5c36a-2f85-45c8-9cc9-d186057d7e02" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/dist/App.js" afterPath="$PROJECT_DIR$/dist/App.js" />
-      <change beforePath="$PROJECT_DIR$/dist/App.js.map" afterPath="$PROJECT_DIR$/dist/App.js.map" />
-      <change beforePath="$PROJECT_DIR$/dist/CheckingAccount.js" afterPath="$PROJECT_DIR$/dist/CheckingAccount.js" />
-      <change beforePath="$PROJECT_DIR$/dist/CheckingAccount.js.map" afterPath="$PROJECT_DIR$/dist/CheckingAccount.js.map" />
-      <change beforePath="$PROJECT_DIR$/dist/RetirementAccount.js" afterPath="$PROJECT_DIR$/dist/RetirementAccount.js" />
-      <change beforePath="$PROJECT_DIR$/dist/RetirementAccount.js.map" afterPath="$PROJECT_DIR$/dist/RetirementAccount.js.map" />
-      <change beforePath="$PROJECT_DIR$/dist/SavingsAccount.js" afterPath="$PROJECT_DIR$/dist/SavingsAccount.js" />
-      <change beforePath="$PROJECT_DIR$/dist/SavingsAccount.js.map" afterPath="$PROJECT_DIR$/dist/SavingsAccount.js.map" />
-      <change beforePath="$PROJECT_DIR$/src/App.ts" afterPath="$PROJECT_DIR$/src/App.ts" />
-      <change beforePath="$PROJECT_DIR$/src/CheckingAccount.ts" afterPath="$PROJECT_DIR$/src/CheckingAccount.ts" />
-      <change beforePath="$PROJECT_DIR$/src/RetirementAccount.ts" afterPath="$PROJECT_DIR$/src/RetirementAccount.ts" />
-      <change beforePath="$PROJECT_DIR$/src/SavingsAccount.ts" afterPath="$PROJECT_DIR$/src/SavingsAccount.ts" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -28,11 +16,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="App.ts" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.ts" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="181">
-              <caret line="91" column="7" lean-forward="false" selection-start-line="91" selection-start-column="7" selection-end-line="91" selection-end-column="7" />
+            <state relative-caret-position="308">
+              <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
               <folding>
                 <element signature="e#0#54#0" expanded="true" />
               </folding>
@@ -43,7 +31,7 @@
       <file leaf-file-name="Account.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Account.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
+            <state relative-caret-position="90">
               <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
                 <element signature="e#0#44#0" expanded="true" />
@@ -52,11 +40,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CheckingAccount.ts" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Transaction.ts" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Transaction.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CheckingAccount.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CheckingAccount.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="64" column="32" lean-forward="false" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+            <state relative-caret-position="294">
+              <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -67,7 +65,7 @@
       <file leaf-file-name="SavingsAccount.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/SavingsAccount.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
+            <state relative-caret-position="1290">
               <caret line="91" column="51" lean-forward="false" selection-start-line="91" selection-start-column="51" selection-end-line="91" selection-end-column="51" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
@@ -79,8 +77,8 @@
       <file leaf-file-name="RetirementAccount.ts" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/RetirementAccount.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1">
-              <caret line="97" column="28" lean-forward="true" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+            <state relative-caret-position="1380">
+              <caret line="97" column="28" lean-forward="false" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
               <folding>
                 <element signature="e#0#36#0" expanded="true" />
               </folding>
@@ -123,10 +121,10 @@
         <option value="$PROJECT_DIR$/src/TransactionOrigin.ts" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/Account.ts" />
-        <option value="$PROJECT_DIR$/src/CheckingAccount.ts" />
         <option value="$PROJECT_DIR$/src/RetirementAccount.ts" />
         <option value="$PROJECT_DIR$/src/SavingsAccount.ts" />
         <option value="$PROJECT_DIR$/src/App.ts" />
+        <option value="$PROJECT_DIR$/src/CheckingAccount.ts" />
       </list>
     </option>
   </component>
@@ -159,7 +157,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -181,7 +179,7 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -253,7 +251,8 @@
       <workItem from="1521428667503" duration="747000" />
       <workItem from="1521467837852" duration="100000" />
       <workItem from="1521520211352" duration="5065000" />
-      <workItem from="1521735596700" duration="1020000" />
+      <workItem from="1521735596700" duration="1696000" />
+      <workItem from="1522337992079" duration="2686000" />
     </task>
     <task id="LOCAL-00001" summary="creating repo">
       <created>1515298116018</created>
@@ -273,11 +272,10 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63929000" />
+    <option name="totallyTimeSpent" value="67291000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info id="TypeScript" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24947146" sideWeight="0.5" order="1" side_tool="false" content_ui="combo" />
@@ -312,13 +310,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/src/CheckingAccount.ts</url>
-          <line>50</line>
-          <properties lambdaOrdinal="-1" />
-        </line-breakpoint>
-      </breakpoints>
       <option name="time" value="1" />
     </breakpoint-manager>
     <watches-manager />
@@ -623,13 +614,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/AccountType.js.map">
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
         </state>
-      </provider>
-      <provider editor-type-id="sourcemapFileViewerProvider">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tsconfig.json">
@@ -683,13 +674,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Transaction.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="30" lean-forward="true" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/App.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -704,20 +688,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Account.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#44#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/RetirementAccount.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1">
-          <caret line="97" column="28" lean-forward="true" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
+        <state relative-caret-position="1380">
+          <caret line="97" column="28" lean-forward="false" selection-start-line="97" selection-start-column="28" selection-end-line="97" selection-end-column="28" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
           </folding>
@@ -726,7 +700,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/SavingsAccount.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="286">
+        <state relative-caret-position="1290">
           <caret line="91" column="51" lean-forward="false" selection-start-line="91" selection-start-column="51" selection-end-line="91" selection-end-column="51" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
@@ -734,22 +708,40 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.ts">
+    <entry file="file://$PROJECT_DIR$/src/Transaction.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="181">
-          <caret line="91" column="7" lean-forward="false" selection-start-line="91" selection-start-column="7" selection-end-line="91" selection-end-column="7" />
-          <folding>
-            <element signature="e#0#54#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="0">
+          <caret line="0" column="30" lean-forward="false" selection-start-line="0" selection-start-column="30" selection-end-line="0" selection-end-column="30" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CheckingAccount.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="64" column="32" lean-forward="false" selection-start-line="64" selection-start-column="32" selection-end-line="64" selection-end-column="32" />
+        <state relative-caret-position="294">
+          <caret line="22" column="20" lean-forward="false" selection-start-line="22" selection-start-column="20" selection-end-line="22" selection-end-column="20" />
           <folding>
             <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Account.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="0" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#44#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="308">
+          <caret line="94" column="0" lean-forward="true" selection-start-line="94" selection-start-column="0" selection-end-line="94" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#54#0" expanded="true" />
           </folding>
         </state>
       </provider>

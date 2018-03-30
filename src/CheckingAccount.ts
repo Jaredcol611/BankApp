@@ -21,6 +21,7 @@ export class CheckingAccount implements Account {
     transactionDate: any;
     errorMessage: string;
     dateOpened: any;
+    accountHolderBirthDate: Date;
 
     withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): any {
         let currentBalance = this.balance;

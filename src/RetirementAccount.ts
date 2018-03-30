@@ -23,6 +23,7 @@ export class RetirementAccount implements Account {
     userAge: number = 66;
     earlyWithdrawal: number;
     dateOpened: any;
+    accountHolderBirthDate: Date;
 
    // move this.balance to an if statement. use moment JS. create this.currentdate.add (days) then get 1st day of month, not first day of week.
 

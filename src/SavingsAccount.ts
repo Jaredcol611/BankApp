@@ -21,6 +21,7 @@ export class SavingsAccount implements Account {
     errorMessage: string;
     monthlyTransactions: number = 6;
     dateOpened: any;
+    accountHolderBirthDate: Date;
 
     withdrawMoney(amount: number, description: string, transactionOrigin: TransactionOrigin): any {
 
